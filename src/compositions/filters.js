@@ -10,7 +10,7 @@ export const useFilter = () => {
     else return a.id - b.id
   }
 
-  const getPendingTodos = (todos) => {
+  const getPendingTodos =  (todos) => {
     return todos.value
       .filter((todo) => todo.date < today && !todo.completed)
       .slice()

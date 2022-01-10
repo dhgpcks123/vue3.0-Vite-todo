@@ -8,9 +8,10 @@
             id="todo_input"
             class="form-control my-2"
             v-model="job"
-            placeholder="여기에 할일을 적으세요"
+            placeholder="여기에 할 일을 적으세요"
           />
-
+          <!-- 다국어지원 vue에서 제공하는 게 또 있군 -->
+          <!-- back, front 분리 시 타임리프 사용 고민 -->
           <div class="row my-2">
             <div class="col-6">
               <input type="date" v-model="date" :min="today" />
@@ -43,12 +44,14 @@ const val_obj = reactive({
 })
 
 const onAddTodo = () => {
-  if (val_obj.job.length > 0) {
-    addTodo(val_obj.job, val_obj.date)
-    val_obj.job = ''
-    val_obj.date = today
-  }
+  onAddTodo(val_obj.job, val_obj.date)
+  val_obj.job = ''
+  val_obj.date = today
 }
+// arrow function은 바인딩 이슈 자유롭고, function 안 써도 된다는 이점이 생김
+// 사실 이거랑 같은거지 뭐.. ArrowFunction, const하는 게 더 좋은 이유는 뭘까?
+// const onAddTodo = function(){}
+// function onAddTodo(){}
 
 const { job, date } = toRefs(val_obj)
 

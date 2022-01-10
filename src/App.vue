@@ -17,14 +17,6 @@ export default{
 import { inject } from 'vue'
 import TodoListContainer from './components/TodoListContainer.vue'
 const today = inject('today')
-// export default {
-//   name: 'App',
-//   setup() {
-//     const today = inject('today')
-//     return { today }
-//   },
-//   components: { TodoListContainer },
-// }
 </script>
 
 <style scoped>
